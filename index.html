@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Jelita 💙</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #1e1e2f, #2b2b4a);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+}
+
+.text {
+  font-size: 18px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.final {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9ecb;
+  margin-top: 20px;
+}
+
+img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 20px;
+  margin-top: 20px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1.5s ease;
+}
+
+.show-img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.floating {
+  position: absolute;
+  font-size: 24px;
+  animation: float 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+  </style>
+</head>
+<body><div class="container">
+  <div class="text">Hai Jelitaaa,</div>
+  <div class="text">Aku ga pinter bikin org maafin diriku,</div>
+  <div class="text">tapi setidaknya aku bikin web ini utk minta maaf aja ke kamu</div>
+  <div class="text">kalo becandaan aku berlebihan, sorry yaaa</div>
+  <div class="text">Aku ga bermaksud</div>
+  <div class="text">Terimakasih sudah hadir di kehidupan ku</div>
+  <div class="text">yang pontang panting kusut dan awur awuran hehe</div>  <img id="photo" src="your-photo.jpg" alt="foto">  <div class="text final">Jangan marah terus yaa 💙</div>
+</div><script>
+  const texts = document.querySelectorAll('.text');
+  const img = document.getElementById('photo');
+
+  function showMessages() {
+    texts.forEach((el, index) => {
+      setTimeout(() => {
+        el.classList.add('show');
+      }, index * 2000);
+    });
+
+    setTimeout(() => {
+      img.classList.add('show-img');
+    }, texts.length * 2000);
+
+    startFloating();
+  }
+
+  function startFloating() {
+    setInterval(() => {
+      const el = document.createElement('div');
+      el.className = 'floating';
+      el.innerHTML = Math.random() > 0.5 ? '💖' : '🌸';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (18 + Math.random() * 20) + 'px';
+      document.body.appendChild(el);
+
+      setTimeout(() => {
+        el.remove();
+      }, 6000);
+    }, 400);
+  }
+
+  window.onload = showMessages;
+</script></body>
+</html>
